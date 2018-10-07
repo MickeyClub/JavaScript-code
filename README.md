@@ -16,7 +16,7 @@
 | [1.09-面向对象编程举例02.html](https://mickeyclub.github.io/JavaScript-code/1.09-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%BE%E4%BE%8B02.html) |
 | [1.10-创建对象的方式构造函数-引入原型.html](https://mickeyclub.github.io/JavaScript-code/1.10-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0-%E5%BC%95%E5%85%A5%E5%8E%9F%E5%9E%8B.html) |
 | [1.11-使用原型需要注意的地方.html](https://mickeyclub.github.io/JavaScript-code/1.11-%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%9E%8B%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9.html) |
-| [1.12.__proto__属性.html](https://mickeyclub.github.io/JavaScript-code/1.12.__proto__%E5%B1%9E%E6%80%A7.html) |
+| [1.12.`__proto__`属性.html](https://mickeyclub.github.io/JavaScript-code/1.12.__proto__%E5%B1%9E%E6%80%A7.html) |
 | [1.13-constructor属性.html](https://mickeyclub.github.io/JavaScript-code/1.13-constructor%E5%B1%9E%E6%80%A7.html) |
 | [1.14-随机方块.html](https://mickeyclub.github.io/JavaScript-code/1.14-%E9%9A%8F%E6%9C%BA%E6%96%B9%E5%9D%97.html) |
 | [2.01-复习-原型&constructor.html](https://mickeyclub.github.io/JavaScript-code/2.01-%E5%A4%8D%E4%B9%A0-%E5%8E%9F%E5%9E%8B%26constructor.html) |
