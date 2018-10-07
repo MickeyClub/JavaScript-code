@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.函数是一个对象.     对象里面肯定有属性和方法.
+    function test(){
+      console.log("哇哈哈哈,我是test函数");
+    }
+    //如果是是用console.log()输出的就是函数体.
+    // console.log(test1);
+    //如果要把函数作为对象输出,就使用console.dir();
+    console.dir(test);
+
+
+    //2.函数对象里面的属性和方法.
+    //2.1  caller
+    //如果函数a是在函数b中调用的,那么函数a的caller就是函数b.
+    //如果函数a没有在其他的函数中调用,是直接调用的,那么caller就是null
+//    function test1(){
+//      test2();
+//    }
+//    function test2(){
+//      console.log(test2.caller);
+//    }
+//
+//    //test1();
+//    test2();
+
+
+    //2.2 length
+    //函数形参的个数.
+//    function test1(a,b,c){
+//      console.log('hahhahahaha');
+//      console.log(test1.length);
+//    }
+//    test1(10,20,30);
+
+
+    //2.3 name
+    //就是函数名
+//    function test1(){
+//      console.log(test1.name);
+//    }
+//    var test2 = function () {
+//      console.log(test2.name);
+//    }
+//    test1();
+//    test2();
+
+
+    //2.4 arguments
+    function test1(a,b){
+      //a.是一个对象,是一个伪数组,他里面存放的是实参的值. 他和形参是一一对应的.
+      a = 100;
+      console.log(arguments);
+      arguments[1] = 2000;
+      console.log(b);
+      // console.log(test1.arguments);
+      // console.log(arguments === test1.arguments); //false
+    }
+    test1(10,20,30,40);
+
+
+    //2.5 arguments是一个对象.他里面有callee方法,和length属性.
+    //a.callee就是函数本身.
+    function test2(){
+      console.log(arguments.callee);
+    }
+    test2();
+    //b.length
+    //实参的个数.
+    function test3(){
+      console.log(arguments.length);
+    }
+    test3(10,20,30,40,50,60);
+
+
+
+
+
+
+
+
+
+
+//    //递归:函数自己调用自己
+//    function sb(){
+//      sb();
+//    }
+//    //匿名函数的递归
+//    (function () {
+//      arguments.callee();
+//    }());
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.既然函数是一个对象,是由Function实例化的.
+
+    //1.1 创建了一个空函数体的函数.
+    // var test1 = new Function();
+    // console.log(test1);
+
+    //1.2 创建有函数体的函数
+    // var test2 = new Function('console.log("我是由Function实例化的函数")');
+    // console.log(test2);
+    // test2();
+
+    //1.3 创建一个有函数体和参数的函数.
+     var test3 = new Function('a','b','console.log(a+b)');
+     test3(10,20);
+
+
+
+
+    //-----------------------------------
+//    function test1(){
+//
+//    }
+//    var test2 = function () {
+//
+//    }
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

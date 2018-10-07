@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.__proto__属性
+    //这个属性是属于对象的, 这个属性指向实例化他的构造函数对应的原型.
+    function Dog(name,age){
+      this.name = name;
+      this.age = age;
+    }
+    //给Dog的原型中添加了sayHi方法.
+    Dog.prototype.sayHi = function () {
+      console.log("汪汪汪,我的名字是"+this.name);
+    }
+    //实例化狗对象.
+    var d1 = new Dog('保健坤',18);
+    console.log(d1);
+
+    //验证一下
+    console.log(d1.__proto__ === Dog.prototype); //true
+
+
+    //2.虽然以下代码是可以的,但是不推荐这样使用.
+    //__proto__不是标准的w3c的属性,虽然现在很多浏览器都支持他了,但是也不建议用这种方式来访问原型.
+    //访问原型还是推荐使用 构造函数名.prototype的方式.
+    //虽然在实际开发生产环境中不推荐用,但是平时学习,平时开发测试可以用.
+    // d1.__proto__.aaa = 'aaa';
+    // console.log(d1.aaa);
+    // var d2 = new Dog('狗群',3);
+    // console.log(d2.aaa);
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

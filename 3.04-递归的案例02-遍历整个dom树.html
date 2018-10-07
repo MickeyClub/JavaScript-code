@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.
+    //需求:就是要求出某个元素的所有的后代元素.   有没有一种方法api可以直接求某个元素的所有后代. 没有
+    //怎么办? 先找到这个元素所有的子代,再让子代去找子代....一直找到没有子代为止..这样不就把这个元素的所有后代都找到了吗?
+
+    window.onload = function () {
+
+
+      //声明一个数组,用来保存某个元素的后代
+      var list = [];
+      //写一个函数,求某个元素的后代.
+      function getHDEles(ele){
+        //找到这个元素的所有子代.
+        var children = ele.children;
+        //遍历每一个子代,让子代求子代
+        for(var i = 0 ; i < children.length; i++){
+          var child = children[i]; //这就是当前ele这个元素的每一个子代.
+          list.push(child);//把当前ele这个元素的所有子代存进list数组中了.
+          //child作为子代,也要求他自己的子代,所以调用getHDEles这个方法来求
+          getHDEles(child);
+        }
+      }
+
+
+
+      //验证一下:求father这个div的所有后代.
+      // var father = document.getElementById("father");
+      // getHDEles(father);
+      // console.log(list);
+
+
+      //验证一下:求整个html中的后代.  找到页面上所有的元素(html标签)   遍历整个dom树
+      //getHDEles(document.documentElement);
+      getHDEles(document.getElementsByTagName('html')[0]);
+      console.log(list);
+
+
+    }
+
+  </script>
+</head>
+<body>
+<div class="father" id="father">
+  <div>div1
+    <span>span1</span>
+    <span>span2</span>
+  </div>
+  <div>div2</div>
+  <div>div3</div>
+  <p>p1</p>
+  <p>p2</p>
+  <p>p3
+    <b>b1</b>
+    <b>b2</b>
+  </p>
+</div>
+</body>
+</html>

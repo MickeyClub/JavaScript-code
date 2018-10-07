@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div,p {
+      height: 50px;
+      margin-top: 10px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+
+<p></p>
+<p></p>
+<p></p>
+</body>
+
+<script src="jquery.min.js"></script>
+<script>
+  $(function () {
+    //找一个专业的人(jQuery)来我们完成我们的需求吗. 面向对象
+    $('div,p').css({
+      border:'1px solid green'
+    });
+
+
+
+    //如果要解决一个需求:先看有没有一个专业的对象,帮你完成这个事,如果有就直接请来用; 如果没有这个专业的人,我们自己创建一个,这样做的好处就是以后如果遇到同样的需求,就可以直接拿来用.
+
+
+  });
+</script>
+
+</html>

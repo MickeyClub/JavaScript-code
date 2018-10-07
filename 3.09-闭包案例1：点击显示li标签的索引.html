@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+
+</head>
+<body>
+<ul id="ul1">
+  <li>我是第1个li标签</li>
+  <li>我是第2个li标签</li>
+  <li>我是第3个li标签</li>
+  <li>我是第4个li标签</li>
+  <li>我是第5个li标签</li>
+</ul>
+<script>
+  //需求:点击那个li弹出当前这个li对应的索引.
+
+  // //以前的做法
+  // var lis = document.getElementById("ul1").children; //拿到所有的li
+  // //遍历出每一个li
+  // for(var i = 0 ; i < lis.length; i++){
+  //   //给每一个li添加一个索引index
+  //   lis[i].setAttribute('index',i); //其实这里就是把for循环的i的每一个取值,用索引属性存起来了.
+  //   //给每一个li添加单击事件.
+  //   lis[i].onclick = function () {
+  //     //弹出当前被单击的这个li的index属性值.
+  //     alert(this.getAttribute('index'));
+  //   }
+  // }
+
+
+
+
+
+  //现在要用闭包做.
+  var lis = document.getElementById("ul1").children; //拿到所有的li
+  //遍历出每一个li
+  for(var i = 0 ; i < lis.length; i++){
+  	//用一个什么东西把这个for循环里面的i的取值存起来.
+    //用的是5个outer函数里面的变量num来存这个i的取值.
+    function outer(){
+      var num = i;
+      function inner(){
+        alert(num);
+      }
+      return inner;
+    }
+    //给每一个li标签设置单击事件
+    lis[i].onclick = outer();
+    //意思是把outer()函数的返回值inner函数赋值给li标签的单击事件.
+    //待会儿点击li标签,实际上是执行的inner函数.
+  }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

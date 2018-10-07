@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //1.原型:不管是那个构造函数被创建,系统都会自动的帮我们生成一个和这个构造函数对应的对象,这个对象就是原型.
+        //如何访问原型: 构造函数名.prototype.
+        //原型是一个对象,就可以往原型中添加属性和方法: 构造函数实例化的对象们共有的数据.
+        //原型中的成员(属性和方法)谁可以访问: 原型对应的构造函数实例化的对象们.
+
+
+        //2.原型使用需要注意的地方.
+        //a.构造函数实例化的对象们共有的数据.才可以存进原型中.
+        //b.构造函数名.prototype. 的方式来访问原型(给原型添加成员).
+        //c.构造函数实例化的对象们 访问属性和方法的规则: 先看自己的,自己有就用自己的,自己没有就看原型有没有......
+        //d.原型可以修改: 创建对象的代码是在修改原型之前还是修改原型之后.
+
+
+
+        //3.__proto__
+        //属于对象的,指向创建他的构造函数对应的那个原型.
+        //开发测试可以用, 实际开发就不推荐使用.
+
+
+        //4.constructor属性
+        //属于原型的,指向他对应的构造函数.
+
+
+
+
+        //隐式类型转换
+        //a.其他类型转number
+        // var  res = +"123";
+        // console.log(res);
+        // console.log(typeof  res);
+
+        // var res =  "123" * 1;
+        // console.log(res);
+        // console.log(typeof  res);
+
+
+        // var res = false * 1;
+        // console.log(res);
+        // console.log(typeof  res);
+
+
+        //b.其他类型转字符串
+        // var res = 123  + "";
+        // console.log(res);
+        // console.log(typeof res);
+
+
+        //c.其他类型转换布尔类型   有哪些可以转换成布尔类型的false: false "" 0 -0 undefined null NaN
+        // var res = !!123;
+        // console.log(res);
+        // console.log(typeof res);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

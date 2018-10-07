@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.闭包的案例
+    //js其实是单线程的.
+    //js代码分为主要代码和次要代码(比如计时器的回调函数.).
+    // for(var i = 0 ; i < 10; i++){
+    // 	setTimeout(function () {
+    //       console.log(i);
+    //    },2000);
+    // }
+
+
+    //怎么做?
+    for(var i = 0 ; i < 10; i++){
+      //可以把i的每一个取值给存进来. 可以声明10个函数,每一个函数里面有一个变量num来存
+      function outer(){
+        var num = i;
+        function inner(){
+          console.log(num);
+        }
+        return inner;
+      }
+
+      setTimeout(outer(),2000);
+    }
+
+
+
+
+
+
+
+
+    //回忆复习setTimeout----------------------------------
+
+    //a.2秒钟后执行console.log("哈哈") 这个代码
+    // setTimeout('console.log("哈哈")',2000);
+
+
+    //b. 2秒钟后执行test1函数.
+    // function test1(){
+    //   console.log("哈哈b");
+    // }
+    // setTimeout(test1,2000);
+
+
+    //c. 一开始就调用了test1,并不会等到2秒;  交给计时器的是test1函数的返回值.
+    // function test1(){
+    //   console.log("哈哈c");
+    // }
+    // setTimeout(test1(),2000);
+
+
+
+    //d.2秒钟之后执行这个匿名函数.
+    // setTimeout(function () {
+    //   console.log("哈哈d");
+    // },2000);
+
+
+    //e. 一开始就执行了这个匿名函数,因为他是自执行函数. 并不会等待2秒.
+    // setTimeout(function () {
+    //   console.log("哈哈e");
+    // }(),2000);
+
+
+    //f.一开始就会执行test1, 把test1的返回值test2赋值给计时器, 2秒钟后执行test2.
+    // function test1(){
+    //   function test2(){
+    //     console.log("哈哈f");
+    //   }
+    //   return test2;
+    // }
+    // setTimeout(test1(),2000);
+
+
+    //g.直接就执行了test1的返回值test2,并不会等待2秒后执行.
+    // function test1(){
+    //   function test2(){
+    //     console.log("哈哈g");
+    //   }
+    //   return test2;
+    // }
+    // setTimeout(test1()(),2000);
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

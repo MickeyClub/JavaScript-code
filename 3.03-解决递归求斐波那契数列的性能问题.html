@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.写了一个函数,能够求出斐波那契数列中第n位是多少.
+    //声明一个变量i,用来记录调用这个函数getFB的次数.
+    // var i = 0;
+    // function getFB(n){
+    //   i++;
+    //   if(n == 1 || n == 2){
+    //     return 1;
+    //   }
+    //   return getFB(n-1) + getFB(n-2);
+    // }
+    // //因为计算的重复项太多了,所以有性能低下的问题产生.
+    // console.log(getFB(50));
+    // console.log(i);
+
+
+
+    //2.怎么办?
+    //可以把以前求过的项,用一个东东(对象)保存起来, 以后如果要求这个项,直接取出来用就可以.就不需要再去求了.
+    //9项  34
+    //8项  21
+
+
+    //声明一个变量,用来记录调用getFB这个函数的次数
+    var i = 0;
+    var obj = {};
+    function getFB(n){
+      i++;
+      //判断一下,这个n位以前求过没有,如果求过,就直接拿来用.
+      if(obj[n]){
+        //如果代码进到这里来了,就表示当前这个n位以前求过
+        return obj[n];
+      }else {
+        //如果代码进到这里来了,就表示这个n为以前没有求过, 没有求过那就求啊.
+        if(n == 1 || n == 2){
+          //把当前求出来的值用obj存起来.
+          obj[n] = 1;
+          return 1;
+        }else {
+          //当前求出来的值也要用obj存起来.
+          obj[n] = getFB(n-1) + getFB(n-2);
+          return obj[n];
+        }
+      }
+    }
+
+
+    console.log(getFB(5));
+    console.log(i);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //回忆一下--------------------------------
+    // var obj = {
+    //   8:21
+    // }
+    // console.log(obj[9]); //undefined
+    // console.log(obj[8]);//21
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

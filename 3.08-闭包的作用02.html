@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.闭包的作用02
+    //提供有限的访问权限.
+
+    // function outer(){
+    //   var num = 10;
+    //   //取值的函数
+    //   function getNum(){
+    //     return num;
+    //   }
+    //   //改值的函数
+    //   function setNum(value){
+    //     //可以写一些过滤逻辑
+    //     if(value >=1 && value <= 120){
+    //       num = value;
+    //     }
+    //   }
+    //   return {
+    //     getNum :getNum,
+    //     setNum :setNum
+    //   };
+    // }
+//
+    // var obj1 =  outer(); //调用outer函数,就会得到一个对象,这个对象包含了2个函数,一个setNum,一个getNum.
+    // obj1.setNum(100);
+    // console.log(obj1.getNum());
+
+
+
+    //-------------------------------------------------------------------------------
+    //2.例子2
+
+    //程序员A
+    function outer(){
+      var name = '帅帅的林哥';
+      var yanZhi = 100000;
+      //声明一个对象返回,对象里面有4个函数.
+      return {
+        setName: function (value) {
+          if(value.indexOf('狗') == -1){
+            name = value;
+          }
+        },
+        getName: function () {
+          return name;
+        },
+        setYanZhi: function (value) {
+          if(value >= 10000){
+            yanZhi = value;
+          }
+        },
+        getYanZhi: function () {
+          return yanZhi;
+        }
+      }
+    }
+
+    //调用outer()函数,得到一个包含4个函数的对象.
+    var obj2 = outer();
+    obj2.setName('帅帅的哥');
+    console.log(obj2.getName());
+
+
+    obj2.setYanZhi(20100);
+    console.log(obj2.getYanZhi());
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

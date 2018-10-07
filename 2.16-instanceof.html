@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.instanceof
+    //语法: 对象 instanceof 构造函数
+    //真正的作用: 判断构造函数的prototype属性,在不在这个对象的原型链上.
+    //instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。
+
+    //以前学习他的时候,是用他来检测数组类型. 当时说了,用它来检测数组的类型,不严谨.
+    var arr = [10,20,30];
+    //arr的原型链: arr -> Array.prototype -> Object.prototype ->null
+    console.log(arr instanceof  Array); //true
+    console.log(arr instanceof  Object); //true
+
+
+
+    //2.根据instanceof的语法, 前面的Function是对象.后面的Function是构造函数.
+    //Function作为对象的原型链: Function.prototype -> Object.prototype ->null
+    console.log(Function instanceof  Function); //true
+    console.log(Function instanceof  Object);//true
+
+
+    //3.根据instanceof的语法,前面的Object是对象,后面的Object是构造函数
+    //Object作为对象的原型链:Function.prototype -> Object.prototype ->null
+    console.log(Object instanceof  Object); //true
+    console.log(Object instanceof  Function);//true
+
+
+
+    //MDN
+    //https://developer.mozilla.org
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

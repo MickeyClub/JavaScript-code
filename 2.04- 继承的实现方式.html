@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    function People(name, age) {
+      this.name = name;
+      this.age = age;
+      this.type = '男'
+    }
+    People.prototype.sayHi = function () {
+      console.log('名字:' + this.name + '---年龄:' + this.age + '---性别:' + this.type)
+    }
+    function Student(name, age) {
+      // call的作用是将this指向People函数   借用构造函数继承属性
+      People.call(this, name, age)
+    }
+    //  原型对象拷贝继承原型对象成员
+    for (const key in People.prototype) {
+      Student.prototype[key] = People.prototype[key]
+    }
+    let s1 = new Student('mickey', 18) // mickey 18 男
+    console.log(s1.name, s1.age, s1.type) // 名字:mickey---年龄:18---性别:男
+    s1.sayHi()
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

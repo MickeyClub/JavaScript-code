@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.原型链
+    //内置对象的原型链
+
+//    var arr = new Array(10,20,30);
+//    console.log(arr);
+//    console.log(arr.toString());
+//
+//    console.log(arr.__proto__ === Array.prototype);//ture
+//    console.log(arr.__proto__.__proto__.constructor); //Object
+//    console.log(arr.__proto__.__proto__ === Object.prototype); //true
+//
+//
+//    var obj = new Object();
+//    console.log(obj.toString());
+
+
+
+
+    //日期对象
+//    var date1 = new Date();
+//    console.log(date1);
+//    console.log(date1.__proto__.__proto__.constructor);//Object
+//    console.log(date1.__proto__.__proto__ === Object.prototype);//true
+
+
+    //dom对象,也有原型.
+    window.onload = function () {
+      var div1 = document.getElementById("div1");
+      var p1 = document.getElementById("p1");
+    }
+
+
+  </script>
+</head>
+<body>
+<div id="div1"></div>
+<p id="p1"></p>
+</body>
+</html>

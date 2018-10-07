@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.递归:
+    //语法:函数自己调用自己.
+    //注意:要有结束的时候.
+
+    //a.函数直接的自己调用自己.
+    // function test1(){
+    //   console.log("我是test1");
+    //   test1();
+    // }
+    // test1();
+
+
+    //b.函数间接的自己调用自己
+    // function test1(){
+    //   console.log("我是test1");
+    //   test2();
+    // }
+    // function test2(){
+    //   console.log("我是test2");
+    //   test1();
+    // }
+    // test1();
+
+
+
+    //2.递归结束的时候.
+    var i = 0;
+    function test1(){
+      i++;
+      console.log("哈哈");
+      if(i < 3){
+        test1();
+      }
+      console.log("呵呵");
+    }
+
+    test1();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //--------------------------------------------------
+//    function test1(){
+//      console.log("哈哈");
+//      test2();
+//      console.log("呵呵");
+//    }
+//    function test2(){
+//      console.log("啦啦啦1");
+//      console.log("啦啦啦2");
+//      console.log("啦啦啦3");
+//    }
+//    test1();
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

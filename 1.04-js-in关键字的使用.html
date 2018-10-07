@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.in关键字的使用
+    //a.forin用来遍历对象,和数组
+    //  var obj = {
+    //    name:'杨康',
+    //    sayHi: function () {
+    //      console.log("穆念慈还好吗!");
+    //    }
+    //  };
+    //  for(var key in obj){
+    //    console.log(key);
+    //    console.log(obj[key]);
+    //  }
+
+    //数组
+    // var arr = [10,20,30];
+    // console.log(arr[2]);
+    // for(var key in arr){
+    //   console.log(key);
+    //   console.log(arr[key]);
+    // }
+
+
+    //b.判断某个对象可不可以访问某个成员(属性和方法)
+    // "成员" in 对象
+    // var obj = {
+    //   name:'康康',
+    //   age:18
+    // }
+    // console.log('name' in obj);//true
+    // console.log('gender' in obj); //false
+    // console.log('toString' in obj);
+
+
+    //c.判断某个数组是否有某个下标
+    var arr = [1,2,3,4,5,5];
+    arr[10] = 100;
+    console.log(arr);
+    console.log(1 in arr);//true
+    console.log(5 in arr);//true
+    console.log(8 in arr);//false
+    console.log(10 in arr);//true
+
+    //问题:要判断数组中是否有某个元素,用indexOf();
+    console.log(arr.indexOf(5)); //得到5这个元素的下标为4
+    console.log(arr.indexOf(50)); //如果没有这个元素,就得到-1
+
+
+
+
+
+
+
+    //
+//    var arr = "abcdeefg";
+//    console.log(arr.indexOf('at'));
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

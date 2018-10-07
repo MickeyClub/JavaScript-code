@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.使用闭包需要注意的地方.
+    //  function test1(){
+    //    var num = Math.ceil(Math.random()*100); //1-100
+    //    function test2(){
+    //      console.log(num);
+    //    }
+    //    return test2;
+    //  }
+//
+    //  //三次输出一样的
+    //  //调用一次test1,产生一个随机数,输出3次.
+    //   var fn = test1();
+    //   fn();
+    //   fn();
+    //   fn();
+//
+//
+    //  //三次输出不一样
+    //  //调用三次test1,产生了三个随机数,每次分别输出.
+    //  test1()();
+    //  test1()();
+    //  test1()();
+
+
+
+    //-----------------------------------------------------------
+    //2.投票机
+    function voter(){
+      var num = 10;
+      function add(){
+        num++;
+        console.log(num);
+      }
+      return add;
+    }
+
+    //相当于给一台投票机投了三张票.
+    //调用了一次voter(),就只会声明出一个num.
+    //后面对num做自增,都是对同一个num做自增.
+    // var fn = voter();
+    // fn();//11
+    // fn();//12
+    // fn();//13
+
+
+
+    //相当于给三台投票机,每一台分别投一票.
+    //调用了三次voter(),就相当于声明了三个num.
+    //后面对num做自增,每次做自增的num不一样.
+     voter()();
+     voter()();
+     voter()();
+
+
+
+
+
+
+
+
+
+
+    //-----------------------------------
+    // function test1(){
+    //   var num = 10;
+    //   console.log(num);
+    // }
+    // //虽然调用两次test1,输出2个10,但是要知道,这两个10是不一样的.
+    // //因为调用一次test1,就会有一个num的声明.
+    // test1();
+    // test1();
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //复习原型
+    function People(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    People.prototype.sayHi = function () {
+      console.log('我的名字是:' + this.name + '---年龄:' + this.age)
+    }
+    let p1 = new People('mickey',18)
+    p1.sayHi()  // 我的名字是:mickey---年龄:18
+    console.log(p1.__proto__ === People.prototype)  // true
+    console.log(People.prototype.constructor === People); //true
+
+
+    //--------------------------------------------------------
+    //使用原型需要注意的地方.
+
+    //1.那些东西可以往原型中添加.
+    //构造函数实例化出来的对象们,共有的数据才可以存放进原型中.
+    // function Teacher(name,age){
+    //   this.name = name;
+    //   this.age = age;
+    // }
+    // //每个老师都有teach方法,所以这个方法就可以存放进原型中.
+    // Teacher.prototype.teach = function () {
+    //   console.log("我是"+this.name+",我在苦口婆心的教呀教...");
+    // }
+    // Teacher.prototype.type = "人";
+    // //根据构造函数创建老师对象.
+    // var lvQun = new Teacher('绿群',39);
+    // lvQun.teach();
+    // var baoJianKun = new Teacher('保健坤',48);
+    // baoJianKun.teach();
+
+
+    //2.对象访问成员(属性和方法)的访问规则:
+    //如果自己有,就访问自己的; 如果自己没有就访问原型的...
+    // function Dog(name,age){
+    //   this.name = name;
+    //   this.age = age;
+    //   this.sayHi = function () {
+    //     console.log("哈哈哈哈,哈哈哈,我和你们不一样>..");
+    //   }
+    //   this.type = "犬科";
+    // }
+    // //每一只狗都可以叫,所以狗sayHi的方法就可以写在原型中
+    // Dog.prototype.sayHi = function () {
+    //   console.log("汪汪汪..我的名字是"+this.name);
+    // }
+    // Dog.prototype.type = "哺乳动物";
+    // //根据构造函数创建狗对象.
+    // var d1 = new Dog('骚林',2);
+    // d1.sayHi();
+    // console.log(d1.type);
+
+
+    //3.如果要添加/修改原型中的成员,一定要使用 '构造函数名.prototype' 这样方式来访问原型.
+    // function Cat(name,pingZhong){
+    //   this.name = name;
+    //   this.pingZhong = pingZhong;
+    // }
+    // Cat.prototype.sayHi = function () {
+    //   console.log("喵喵喵....");
+    // }
+    // //实例化猫对象.
+    // var c1 = new Cat('绿群','英短');
+    // //需求;修改一下原型中的这个sayHi方法.
+    // //下面这个是给c1对象添加一个sayHi方法.
+    // c1.sayHi = function () {
+    //   console.log("我是修改之后的sayHi方法");
+    // }
+    // //所以c1自己有sayHi,就不会去原型中查找sayHi();
+    // c1.sayHi();
+    // //
+    // var c2 = new Cat('骚周林','波斯猫');
+    // c2.sayHi();
+
+
+
+    //4.原型可以修改, 根据构造函数实例化出来的对象访问原型中的成员,是访问之前的原型的,还是访问修改原型之后的.
+    //要看这个对象是在修改之前创建的,还是在修改之后创建的.
+    function Car(type, price) {
+      this.type = type;
+      this.price = price;
+    }
+    Car.prototype.run = function () {
+      console.log("我是一辆" + this.type + "车,在快乐的奔跑中...");
+    }
+
+
+    //原型是一个对象,当然可以修改原型啦.
+    Car.prototype = {
+      run: function () {
+        console.log("哈哈哈,我快要漂移飞起来了....");
+      }
+    }
+
+    //实例化一个车对象
+    var c1 = new Car('宝马x5', 800000);
+    c1.run();
+
+
+
+
+    //对象是可以修改的.
+    // var age = 18;
+    // age = 28;
+    // //本来obj指向name为杨康的那个对象,后面修改为了name为念慈的那个对象.
+    // var obj = {
+    //   name : '杨康'
+    // }
+    // obj = {
+    //   name : "念慈"
+    // }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

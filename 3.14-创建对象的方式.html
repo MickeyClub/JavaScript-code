@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.其他创建对象的方式里面的this的指向.
+    //a.工厂模式.
+    //里面的this是window.
+    // function createStudent(name,age){
+    //   var obj = new Object();
+    //   obj.name = name;
+    //   obj.age = age;
+    //   console.log(this);
+    //   return obj;
+    // }
+    // var s1 = createStudent('康康',18);
+    // console.log(s1);
+
+
+    //b.寄生模式
+    function createStudent(name,age){
+      var obj = new Object();
+      obj.name = name;
+      obj.age = age;
+
+      this.xx = "叉叉";
+      console.log(this);
+
+      console.log(obj);
+      //return obj;
+    }
+    var s1 = new createStudent('康康',18);
+    console.log(s1);
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

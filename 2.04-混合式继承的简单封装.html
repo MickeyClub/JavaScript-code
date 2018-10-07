@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //c.混合式
+    var wangjianlin = {
+      house:{
+        address:'东京',
+        price:1000000
+      },
+      car:{
+        brand:'法拉利',
+        price:5000000
+      }
+    }
+//--------------------------------------------------------------------------------------
+    //1.写一个渣男构造函数
+    function ZhaNan(gfs){
+      this.gfs = gfs;
+    }
+    ZhaNan.prototype.huaQian = function () {
+      console.log("我是渣男,我会花钱买6块钱麻辣烫....");
+    }
+    //混合式继承:这句话意思是没有替换原型,而是给原型添加了一些成员.
+    // for(var key in wangjianlin){
+    //   ZhaNan.prototype[key] = wangjianlin[key];
+    // }
+    //调用封装的函数来实现继承
+    extend(ZhaNan,wangjianlin);
+    //根据构造函数实例化一个对象.
+    var lvQun = new ZhaNan(['凤姐',"保健坤",'骚林','五姑娘','001..']);
+    console.log(lvQun);
+
+
+    //2.写一个好男人构造函数
+    function GoodMan(wife){
+      this.wife = wife;
+    }
+    GoodMan.prototype.zhuFan = function () {
+      console.log("我是号男人,我会煮饭和带娃...");
+    }
+    //混合式继承:这句话意思是没有替换原型,而是给原型添加了一些成员.
+    // for(var key in wangjianlin){
+    //   GoodMan.prototype[key] = wangjianlin[key];
+    // }
+    //调用封装的方法来实现继承
+    extend(GoodMan,wangjianlin);
+    //根据构造函数实例化一个对象.
+    var linGe = new GoodMan('林嫂');
+    console.log(linGe);
+
+
+
+    //----------------------------------------------
+    //我们发现继承的代码都是一样的,所以想到了封装成一个函数.
+    function extend(method,obj){
+      for(var key in obj){
+        method.prototype[key] = obj[key];
+      }
+    }
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

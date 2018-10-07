@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <style>
+    div {
+      height: 50px;
+      margin-top: 10px;
+      background-color: pink;
+    }
+    p {
+      height: 50px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<p></p>
+<p></p>
+<p></p>
+
+<script>
+  //需求:给这三个div和三个p标签设置边框.
+
+  //以前的做法
+  //缺点:
+  //API名字太长不好记
+  //代码冗余
+  // var divs = document.getElementsByTagName("div");
+  // var ps = document.getElementsByTagName("p");
+  // for(var i = 0 ; i < divs.length; i++){
+  // 	divs[i].style.border = '1px solid blue';
+  // }
+  // for(var i = 0 ; i < ps.length; i++){
+  // 	ps[i].style.border = '1px solid green';
+  // }
+
+
+  //封装一下
+  //缺点:
+  //容易 造成全局变量的污染
+  //  function id(id){
+  //    return document.getElementById(id);
+  //  }
+  //  function tagName(tagName){
+  //    return document.getElementsByTagName(tagName);
+  //  }
+  //  function setStyle(eles,style){
+  //    for(var i = 0 ; i < eles.length; i++){
+  //      eles[i].style.border = style;
+  //    }
+  //  }
+  //  var divs = tagName('div');
+  //  var ps = tagName('p');
+  //  setStyle(divs,'1px solid blue');
+  //  setStyle(ps,'1px solid green');
+
+
+
+  //封装在对象里面
+  var obj = {
+    id: function (id) {
+      return document.getElementById(id);
+    },
+    tagName: function (tagName) {
+      return document.getElementsByTagName(tagName);
+    },
+    setStyle: function (eles, style) {
+      for (var i = 0; i < eles.length; i++) {
+        eles[i].style.border = style;
+      }
+    }
+  }
+
+  var divs = obj.tagName('div');
+  var ps = obj.tagName('p');
+  obj.setStyle(divs,'1px solid blue');
+  obj.setStyle(ps,'1px solid green');
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

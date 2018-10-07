@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.沙箱/沙盒
+    //有什么用: 避免全局变量污染, 模块化开发.
+    (function (w) {
+      //蛇
+      var list = [];
+
+      function Snake() {
+        //蛇的构造函数.
+        console.log("哈哈我是Snake");
+      }
+
+      //为什么不在这里直接使用window属性把Snake构造函数给暴露出去,而是使用参数来暴露.
+      //a.如果在这里使用window,就破坏了函数的封装性.
+      //b.代码后期会压缩.有可能会出现问题.
+
+      //这样吧Snake构造函数给暴露出去.
+      w.Snake = Snake;
+      //  w.xx= xx;
+      //  w.yy =yy;
+
+    }(window));
+
+
+
+    Snake();//调用fn就相当于调用Snake.
+
+
+
+
+
+
+
+
+
+
+
+
+    (function (window) {
+      //食物
+      var list = [];
+
+      function sayHi() {
+        console.log('大家好~我在沙箱里面')
+      }
+      window.sayHi = sayHi;
+    }(window));
+    sayHi(); // 大家好~我在沙箱里面
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

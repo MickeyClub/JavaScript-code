@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.面向对象其实是一种解决问题的思路.
+    //面向对象的语言: java c# oc
+    //面向对象有三大特征: 封装  继承  多态
+
+    //封装:就是将功能封装整合在对象内，只对外界暴露指定的接口，外界在使用的时候，只需要考虑接口怎么用，而不需要考虑内部的具体实现。
+    //继承:js中是一个对象继承另外一个对象: 如果一个对象拥有某个属性和方法,另外一个对象也想有这个属性和方法,那么就可以继承自之前的那个对象.
+    //多态:js中没有多态
+
+
+
+    //js基于对象的语言.
+
+
+   function sb(obj){
+     obj.sayHi();
+   }
+   var o1 = {
+     sayHi: function () {
+       console.log("我是Mickey,哈哈");
+     }
+   }
+   var o2 = {
+     sayHi: function () {
+       console.log("我是Motto,呵呵");
+     }
+   }
+
+
+
+
+
+   sb(o1);
+   sb(o2);
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

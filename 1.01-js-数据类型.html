@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.数据类型
+    //基本数据类型:string number boolean undefined null
+    //复杂数据类型:Array Object Function Math Date RegExp(正则表达式) String Number Boolean
+
+    //2.数据类型检测
+    //2.1 typeof
+    //语法: typeof 需要检测的内容
+    //      typeof (需要检测的内容)  //括号其实是提升优先级的.
+    // var num = 123;
+    // console.log(typeof  num);
+    // console.log(typeof (typeof  '123'));
+    //console.log(typeof (10 + 20));
+
+    //2.2 typeof能够检测那些数据类型
+    //除了null之外的所有的基本数据类型,还可以检测function
+    // function test1(){
+    //   console.log("哈哈,我是test1");
+    // }
+    // console.log(typeof test1);//function
+
+    //2.3 检测数组
+    //a. isArray
+    // var arr = [10,20,30];
+    // console.log(typeof arr);//object
+    // console.log(Array.isArray(arr));//true
+
+    //b.instanceof
+    //检测数组的数据类型,并不是很严谨. 因为根据原型的原型链Array对象最终会指向Object对象
+    // var arr = [10,20,30];
+    // console.log(arr instanceof  Array);//true
+    // console.log(arr instanceof  Object);//true
+
+
+    //2.4 Object.prototype.toString.call(需要检测的数据类型);
+    // console.log(Object.prototype.toString.call(null));//'[object Null]'
+    // console.log(Object.prototype.toString.call(123));//'[object Number]'
+    // console.log(Object.prototype.toString.call('abc'));//'[object String]'
+    // console.log(Object.prototype.toString.call(undefined));//'[object Undefined]'
+    // console.log(Object.prototype.toString.call(NaN));//'[object Number]'
+    // console.log(Object.prototype.toString.call([10,20,30]));//'[object Array]'
+
+
+    //2.5 NaN  只是一个值而已,是not a number 表示不是一个数字 ,属于number数据类型的.
+    //'abc'
+    // isNaN(需要判断的内容) ; 检测一个值是否是NaN
+    //如果你是一个数字,就不是一个NaN,那么isNaN()就是false
+    // console.log(isNaN(10));//false
+    // //如果你不是一个数字,就是一个NaN,那么isNaN()就是true
+    // console.log(isNaN('abc')); //true
+    // //注意:isNaN() 检测的时候会发生隐式类型转换.
+    // console.log(isNaN('123')); //'false'
+
+
+    //3.基本包装类型  String Number Boolean
+    //var num = 123;
+    var num = new Number(123);
+    //num.toString();//疑问,num是一个基本类型的数据,为什么可以向对象一样调用一个方法出来呢?
+    console.log(num); //123
+    console.log(num.toString()); //'123'
+    console.log(num.valueOf());  //123
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

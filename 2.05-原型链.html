@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.原型链
+    //每一个对象都有自己的原型,原型又是对象,所以原型又有原型,这样就形成了一个链式结构,成为原型链.
+
+    function Person(name){
+      this.name = name;
+    }
+    Person.prototype.sayHi= function () {
+      console.log("你好吗.我叫"+this.name);
+    }
+    Person.prototype.type = "人类";
+
+    //根据构造函数实例化对象.
+    var  p1 = new Person('杨康');
+    p1.age = 18;
+    p1.swimming = function () {
+      console.log("我会游泳,不就是不停的喝水吗...");
+    }
+
+    //调用成员
+    console.log(p1.name);//p1对象自己拥有的name
+    p1.sayHi();//p1对象自己没有,但是他的原型中有
+    console.log(p1.type);//p1对象自己没有,但是他的原型中有
+    console.log(p1.age);//p1对象动态添加的,也是属于自己有的
+    p1.swimming();//p1对象动态添加的,也是属于自己有的
+    //console.log(p1.gender);//undefinde ,自己没有,原型也没有.
+    //p1.eat();//报错,自己没有,原型也没有.
+
+    p1.toString();//为什么自己没有,原型中也没有,但是没有报错.
+    console.log(p1);//自己没有,原型中也没有,但是原型的原型中有.
+
+
+    //验证一下
+    console.log(p1.__proto__.__proto__.constructor);//Object
+    console.log(p1.__proto__.__proto__ === Object.prototype); //true
+    console.log(p1.__proto__.__proto__.__proto__);//null
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

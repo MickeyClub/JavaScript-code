@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.可以直接给内置构造函数的原型中添加方法, 但是不推荐大家直接给内置构造函数的原型中添加方法,因为这样不安全.
+    //程序员A
+    //  Array.prototype.aaa = function () {
+    //    console.log("我是程序员a添加的一个aaa方法.");
+    //  }
+    //  //程序员B
+    //  Array.prototype.aaa = function () {
+    //    console.log("我是程序员B的aaa..");
+    //  }
+    //  //程序员a使用
+    //  var arr = [1,2,3];
+    //  arr.aaa();
+
+
+
+    //2.我们要安全的给内置对象的原型添加方法.
+    //程序员A
+    function myArray(){
+
+    }
+    //这句话就是在替换原型,把myArray的原型,替换成了一个空数组.这样做的目的就是让myArray实例化的对象们拥有数组的方法.
+    myArray.prototype = [];
+
+    //安全的给原型添加方法.
+    myArray.prototype.aaa = 'aaa';
+    //思考题:安全的添加一个有意义的方法.
+
+    //实例化对象1
+    var arr1 = new myArray();
+    //arr1自己没有push方法,他的原型是一个空数组也没有push方法,但是他的原型的原型是Array.prototype有push方法.
+    arr1.push(10);
+    console.log(arr1.aaa);
+    //实例化对象2
+    var arr2 = new myArray();
+    arr2.push(20);
+    console.log(arr2.aaa);
+
+
+
+//------------------------------------------
+//     //a
+//     function a (){
+//       Array.prototype
+//       myArray
+//     }
+//
+//     //b
+//     function b (){
+//       Array.prototype
+//       myArray
+//     }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //作用域:变量起作用的区域
+    //局部作用域:函数内部
+    //全局作用域:函数外部script标签内部
+    //局部变量:
+    //全局变量:
+    //变量的访问规则: 作用域链
+//    var num = 10;
+//    function test1(){
+//      var num = 20
+//      function test2(){
+//        var num = 30;
+//        console.log(num);
+//      }
+//      test2();
+//    }
+//    test1();
+
+
+    //预解析
+    //不管在那个作用域中,变量的声明都会提前到当前作用域的最订单,赋值语句保留在原地.
+    //不管在那个作用域中,函数的声明会提前到当前作用域的最顶端,调用语句保留在原地.
+    // console.log(num); //undefined.
+    // var num = 10;
+    // test1();
+    // function test1(){
+    //   console.log("哈哈");
+    // }
+
+
+
+
+
+
+
+
+
+
+    //1.------------------------------
+    // function foo() {
+    //   var num = 123;
+    //   console.log(num); //123
+    // }
+    // foo();
+    // console.log(num); //报错 num is not defined
+
+
+
+
+
+    // 2
+    // var scope = "global";
+    // function foo() {
+    //   console.log(scope); //undefined
+    //   var scope = "local";
+    //   console.log(scope); //"local"
+    // }
+    // foo();
+
+
+
+
+    // 3
+    //分析过程
+//    var a; //这句话相当于声明一个全局a变量,也相当于是给window这个对象添加一个属性a.
+//    if("a" in window){ //true
+//      a = 10;
+//    }
+//    alert(a); // 10
+    //-------------------------------
+//    if("a" in window){
+//      var a = 10;
+//    }
+//    alert(a); // 10
+
+
+
+
+    //4.
+//    if(!"a" in window){
+//      var a = 10;
+//    }
+//    alert(a); // undefiend
+
+
+
+
+    //5.
+    //分析过程
+//    var a;
+//    if(name in window){ //这句话,就是取name的值,然后看这个值在window中有没有? name的值是""  ,现在就相当于判断"" in window
+//      a = 10;
+//    }
+//    alert(a); //
+    //-----------------
+//    if(name in window){
+//      var a = 10;
+//    }
+//    alert(a); undefined
+
+
+
+    //6.
+//    if("name" in window){
+//      var a = 10;
+//    }
+//    alert(a);//10
+
+
+
+
+    //7.
+//    var a; //给window添加一个属性a,值是undefined.
+//    if(a in window){ //取a的值undefined.然后判断window中有没有.  true
+//      a = 10;
+//    }
+//    alert(a); //10
+    //-----------------------
+//    if(a in window){
+//      var a = 10;
+//    }
+//    alert(a); //10
+
+
+
+
+    // 8
+//    var foo = 1;
+//    function bar() {
+//      var foo; //undefined
+//      if(!foo) { //true
+//        foo = 10;
+//      }
+//      alert(foo); //10
+//    }
+//    bar();
+    //-----------------------
+//    var foo = 1;
+//    function bar() {
+//      if(!foo) {
+//        var foo = 10;
+//      }
+//      alert(foo); //
+//    }
+//    bar();
+
+
+//    //9.------------------------------------
+//    var num = 123;
+//    function f1() {
+//      console.log(num); //当前这个作用域中么有num的声明,使用num就去上一级作用域查找.  所以num123
+//    }
+//
+//    function f2() {
+//      var num = 456;
+//      f1();
+//    }
+//
+//    f2();
+
+
+
+
+    //6.---------------------------------------
+    var num = 123;
+    function f1(num) { // 参数理解为：函数内部的一个变量
+      console.log(num); //456
+    }
+
+
+    function f2() {
+      var num = 456;
+      f1(num);
+    }
+
+    f2();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

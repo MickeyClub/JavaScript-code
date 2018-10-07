@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.constructor属性.
+    //属于原型的, 指向他对应的那个构造函数.
+    function Cat(name,pingZhong){
+      this.name = name;
+      this.pingZhong = pingZhong;
+    }
+    //给原型添加sayHi方法.
+    Cat.prototype.sayHi = function () {
+      console.log("喵喵喵...我是一只猫,我的名字是"+this.name);
+    }
+    //console.log(Cat.prototype);
+
+    //验证一下
+    //console.log(Cat.prototype.constructor === Cat); //true
+
+
+
+    //2.
+    //实例化一个对象
+    // var c1 = new Cat('绿群','英短');
+    // console.log(c1.constructor); //这句话有错吗? 不会
+    //c1自己没有constructor属性,但是c1指向的原型中有这个属性,所以c1能访问这个属性.
+
+
+    //3.下面这种方式也是可以创建对象的.
+    // var c2 = new Cat.prototype.constructor('保健坤','暹罗');
+    // c2.sayHi();
+
+
+    //4.原型可以修改.修改了原型后原型中的constructor指向就丢失了.
+    //虽然丢失了,但是找回来...
+    Cat.prototype = {
+      constructor:Cat
+    }
+    console.log(Cat.prototype.constructor === Cat);
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

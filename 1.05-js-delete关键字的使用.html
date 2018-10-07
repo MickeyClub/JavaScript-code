@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.delete关键字的使用
+
+    //a.可以删除没有使用var声明的变量.
+    // num = 10;
+    // delete  num;
+    // console.log(num);//num is not defined
+
+
+    // function test1(){
+    //   num = 100;
+    // }
+    // test1();
+    // delete  num;
+    // console.log(num);
+
+
+
+    //b.delele 就可以删除对象中的成员.
+    var obj = {
+      name:'冲冲'
+    };
+    //动态的给对象添加属性和方法.
+    obj.age = 18;
+    obj['gender']="男";
+    //动态的给对象删除属性和方法.
+    delete  obj.name;
+    console.log(obj);
+
+
+    //removeAttribute()删除属性的吗?
+    //注意:removeAttribute()这个方法是属于dom对象的,普通对象没有.
+    //obj.removeAttribute('name'); //obj.removeAttribute is not a function
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

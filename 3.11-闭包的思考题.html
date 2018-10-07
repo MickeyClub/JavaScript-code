@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.闭包的思考题.
+    //思考题1:
+    // var name = "The Window";
+    // var object = {
+    //   name: "My Object",
+    //   getNameFunc: function () {
+    //     return function () {
+    //       return this.name;
+    //     };
+    //   }
+    // };
+    // console.log(object.getNameFunc()()); //"The Window";
+
+
+
+
+
+    //思考题 2：
+    //  var name = "The Window";
+    //  var object = {
+    //    name: "My Object",
+    //    getNameFunc: function () {
+    //      var that = this;
+    //      return function () {
+    //        return that.name;
+    //      };
+    //    }
+    //  };
+    //  console.log(object.getNameFunc()()); "My Object"
+
+
+
+
+    //写了一个求斐波那契数列的函数.
+    //这个函数是一个独立的功能,但是始终要和外面的对象obj取到练习,才能完成这个功能,怪怪的.
+    // var obj = {};
+    // function getFB(n){
+    //   if(obj[n]){
+    //     return obj[n];
+    //   }else {
+    //     if(n == 1 || n == 2){
+    //       obj[n] = 1;
+    //       return 1;
+    //     }else {
+    //       obj[n] = getFB(n-1) + getFB(n-2);
+    //       return obj[n];
+    //     }
+    //   }
+    // }
+
+
+    //解决.
+    function createFB(){
+      var obj = {};
+      function getFB(n){
+        if(obj[n]){
+          return obj[n];
+        }else {
+          if(n == 1 || n == 2){
+            obj[n] = 1;
+            return 1;
+          }else {
+            obj[n] = getFB(n-1) + getFB(n-2);
+            return obj[n];
+          }
+        }
+      }
+      return getFB;
+    }
+    //求50位上的数是多少.
+    console.log(createFB()(50));
+
+
+    //思考题
+    //遍历dom树函数是一个独立的功能,但是也是始终要和外界的数组取得联系,怎么样改?
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

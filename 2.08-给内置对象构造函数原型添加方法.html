@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.
+    //   var arr1 = [10,20,30];
+    //   var arr2 = new Array(100,200,300);
+    //   //这两个数组对象的原型,是不是同一个? 是, 是Array.prototype.
+    //   console.log(arr1.__proto__ === arr2.__proto__); //true
+    //   console.log(arr1.__proto__ === Array.prototype); //true
+//
+    //   //输出Array.prototype原型,有很多的方法,这些方法每一个数组对象,都可以调用.
+    //   console.log(Array.prototype);
+    //   //我觉得这些方法不够用,所以我要往里面添加方法或者属性.
+//
+    //   //在往数组原型中添加aaa属性和bbb方法.
+    //   Array.prototype.aaa = 'aaa';
+    //   Array.prototype.bbb = function () {
+    //     console.log("bbb");
+    //   }
+    //   //往数组原型中添加的属性和方法,数组对象是可以访问的.
+    //   console.log(arr1.aaa);
+    //   arr2.bbb();
+
+
+
+
+    //2.往数组原型中添加一个我们自己排序的方法.
+    Array.prototype.mySort = function () {
+      //冒泡排序排
+      for(var i = 0 ; i < this.length-1; i++){
+        for(var j = 0 ; j < this.length-1-i; j++){
+          if(this[j] > this[j+1]){
+            var temp = this[j];
+            this[j] = this[j+1];
+            this[j+1] = temp;
+          }
+        }
+      }
+    }
+    //数组对象1
+    var arr = [10,110,107,119,118,121,55,66,33,22,11];
+    arr.mySort();
+    console.log(arr);
+
+    //数组对象2
+    var arr2 = [11,22,55,33,22,11,7,8,3];
+    arr2.mySort();
+    console.log(arr2);
+
+
+
+
+
+
+
+
+    //回忆一下冒泡排序
+    // var arr = [10,110,107,119,118,121,55,66,33,22,11];
+    // for(var i = 0 ; i < arr.length-1; i++){
+    // 	for(var j = 0 ; j < arr.length-1-i; j++){
+    // 		if(arr[j] > arr[j+1]){
+    //           var temp = arr[j];
+    //           arr[j] = arr[j+1];
+    //           arr[j+1] = temp;
+    //         }
+    // 	}
+    // }
+    // console.log(arr);
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

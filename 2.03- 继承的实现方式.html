@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.继承的方式
+    //a.混入式
+    //  var wangjianlin = {
+    //    house:{
+    //      address:'东京',
+    //      price:1000000
+    //    },
+    //    car:{
+    //      brand:'法拉利',
+    //      price:5000000
+    //    }
+    //  }
+//
+    //  var wangsicong = {
+    //    girlFriends:['雪梨',"豆得儿",'骚群','林更新','001']
+    //  };
+    //  //wangsicong这个对象,想拥有house和car,要么自己定义,要么继承自wangjianlin.
+    //  //继承
+    //  for(var key in wangjianlin){
+    //    wangsicong[key] = wangjianlin[key];
+    //  }
+    //  console.log(wangsicong);
+
+
+
+    //b..替换原型方式实现继承。
+    //缺点:会丢失之前原型中的成员.
+    //  var wangjianlin = {
+    //    house:{
+    //      address:'东京',
+    //      price:1000000
+    //    },
+    //    car:{
+    //      brand:'法拉利',
+    //      price:5000000
+    //    }
+    //  }
+//
+    //  //写一个渣男构造函数
+    //  function ZhaNan(gfs){
+    //    this.gfs = gfs;
+    //  }
+    //  ZhaNan.prototype.huaQian = function () {
+    //    console.log("我是渣男,我会花钱买6块钱麻辣烫....");
+    //  }
+    //  //替换原型继承
+    //  ZhaNan.prototype = wangjianlin;
+//
+    //  //根据构造函数实例化一个对象.
+    //  var wangsicong = new ZhaNan(['雪梨',"豆得儿",'骚群','林更新','001']);
+    //  wangsicong.huaQian();
+
+
+    //c.混合式
+    var wangjianlin = {
+      house:{
+        address:'东京',
+        price:1000000
+      },
+      car:{
+        brand:'法拉利',
+        price:5000000
+      }
+    }
+
+    //写一个渣男构造函数
+    function ZhaNan(gfs){
+      this.gfs = gfs;
+    }
+    ZhaNan.prototype.huaQian = function () {
+      console.log("我是渣男,我会花钱买6块钱麻辣烫....");
+    }
+    //混合式继承:这句话意思是没有替换原型,而是给原型添加了一些成员.
+    for(var key in wangjianlin){
+     ZhaNan.prototype[key] = wangjianlin[key];
+    }
+    //根据构造函数实例化一个对象.
+    var wangsicong = new ZhaNan(['雪梨',"豆得儿",'骚群','林更新','001']);
+    console.log(wangsicong);
+    wangsicong.huaQian();
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

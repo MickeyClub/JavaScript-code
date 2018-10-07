@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>标题</title>
+  <script>
+    //1.不管是那个对象的原型链都最终指向了Object.prototype,意味着Object.prototype里面的成员不管是那个对象都可以访问.
+
+    //2.Object.prototype原型中的成员.
+    //a.hasOwnProperty()
+    //对象用来判断某个属性是否是自己的.
+    //  function Dog(name,age){
+    //    this.name = name;
+    //    this.age = age;
+    //  }
+    //  Dog.prototype.sayHi= function () {
+    //    console.log("汪汪汪....");
+    //  }
+    //  //实例化一个狗对象
+    //  var d1 = new Dog('旺财',2);
+    //  console.log(d1.hasOwnProperty("name"));//true
+    //  console.log(d1.hasOwnProperty("age"));//true
+    //  console.log(d1.hasOwnProperty("sayHi"));//false
+    //  console.log(d1.hasOwnProperty("gender"));//false
+
+
+
+    //b.isPrototypeOf()
+    //判断一个对象是否是另外一个对象的原型.
+    // var obj1 = {};
+    // var obj2 = {};
+    // //这句话是在修改obj2的原型,把obj2的的原型替换成obj1.
+    // obj2.__proto__ = obj1;
+    // console.log(obj1.isPrototypeOf(obj2));//true
+
+
+    //  function Dog(name,age){
+    //    this.name = name;
+    //    this.age = age;
+    //  }
+    //  var d1 = new Dog('旺财',2);
+    //  console.log(Dog.prototype.isPrototypeOf(d1)); //true
+
+
+
+    //c.propertyIsEnumerable();
+    //一方面判断某个属性是否是自己的.
+    //一方面判断某个属性能够被遍历.
+    function Dog(name,age){
+      this.name = name;
+      this.age = age;
+    }
+    Dog.prototype.type = '犬科';
+    Dog.prototype.sayHi = function () {
+      console.log("汪汪汪...");
+    }
+    //实例化一只狗.
+    var d1 = new Dog('来福',1);
+    //自己的属性和自己在原型中定义的属性,都是可以被遍历的.
+    // for(var key in d1){
+    //   console.log(key);
+    // }
+
+    console.log(d1.propertyIsEnumerable('name'));//true
+    console.log(d1.propertyIsEnumerable('age'));//true
+    console.log(d1.propertyIsEnumerable('type'));//false
+    console.log(d1.propertyIsEnumerable('sayHi'));//false
+
+
+
+
+
+
+    //自定义属性definePrototy
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
